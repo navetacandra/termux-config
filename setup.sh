@@ -7,6 +7,11 @@ pkg install x11-repo
 
 # Install all dependencies
 apt install curl vim nano git gh python ruby nodejs-lts proot-distro cowsay -y
+
+# Update dependencies
+apt upgrade -y
+apt update -y
+
 gem install lolcat
 proot-distro install ubuntu
 
@@ -25,4 +30,4 @@ echo "echo \"Date: \$datetime\" | lolcat" >> ~/.bashrc
 # Install custom style
 cd ~
 sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"
-echo "source /data/data/com.termux/files/usr/etc/bash.bashrc" >> ~/.zshrc
+echo "source /data/data/com.termux/files/home/.bashrc" >> ~/.zshrc
