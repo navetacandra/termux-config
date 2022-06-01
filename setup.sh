@@ -25,3 +25,4 @@ echo "echo \"Date: \$datetime\" | lolcat" >> bash.bashrc
 # Install custom style
 cd ~
 sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"
+echo "source /data/data/com.termux/files/usr/etc/bash.bashrc" >> ~/.zshrc
