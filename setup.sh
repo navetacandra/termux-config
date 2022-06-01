@@ -15,12 +15,12 @@ cd ~/../usr/etc
 rm -rf motd
 
 # Write .bashrc
-echo "\nalias cls='clear'" >> bash.bashrc
-echo "alias ubuntu='proot-distro login ubuntu'" >> bash.bashrc
-echo "datetime=\`date\`" >> bash.bsshrc
-echo "cowsay -f eyes \"Welcome\" | lolcat" >> bash.bashrc
-echo "echo && echo" >> bash.bashrc
-echo "echo \"Date: \$datetime\" | lolcat" >> bash.bashrc
+echo "alias cls='clear'" >> ~/.bashrc
+echo "alias ubuntu='proot-distro login ubuntu'" >> ~/.bashrc
+echo "datetime=\`date\`" >> ~/.bashrc
+echo "cowsay -f eyes \"Welcome\" | lolcat" >> ~/.bashrc
+echo "echo && echo" >> ~/.bashrc
+echo "echo \"Date: \$datetime\" | lolcat" >> ~/.bashrc
 
 # Install custom style
 cd ~
