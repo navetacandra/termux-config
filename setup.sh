@@ -1,9 +1,9 @@
-# Update Repo
-pkg install x11-repo
-
 # Update dependencies
 apt upgrade -y
 apt update -y
+
+# Update Repo
+pkg install x11-repo
 
 # Install all dependencies
 apt install curl vim nano git gh python ruby nodejs-lts proot-distro cowsay -y
