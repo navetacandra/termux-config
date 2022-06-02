@@ -6,7 +6,7 @@ apt update -y
 pkg install x11-repo
 
 # Install all dependencies
-apt install curl vim nano git gh python ruby nodejs-lts proot-distro cowsay -y
+apt install curl vim nano git gh ruby proot-distro cowsay -y
 
 # Update dependencies
 apt upgrade -y
@@ -31,3 +31,8 @@ echo "echo \"Date: \$datetime\" | lolcat" >> ~/.bashrc
 cd ~
 sh -c "$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)"
 echo "source /data/data/com.termux/files/home/.bashrc" >> ~/.zshrc
+git clone https://github.com/navetacandra/vim-config
+cd vim-config
+sh ./setup.sh
+cd ~
+rm -rf vim-config termux-ohmyzsh
