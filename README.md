@@ -1,6 +1,7 @@
 ### Termux Config
 
 ```bash
+cd $HOME &&
 pkg upgrade -y &&
 pkg update -y &&
 pkg install git &&
