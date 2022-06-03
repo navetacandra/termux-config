@@ -2,4 +2,5 @@ alias cls='clear'
 alias ubuntu='proot-distro login ubuntu'
 
 cowsay -f eyes "WELCOME" | lolcat
+echo && echo
 echo "Date : `date`" | lolcat
