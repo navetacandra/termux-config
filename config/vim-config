@@ -93,6 +93,7 @@ let g:ctrlp_show_hidden = 1
 
 
 
+map <C-p> :Prettier<CR>
 map <C-s> :call PrettierAndSave()<CR>
 map <C-x> :q!<CR>
 map <C-q> :qa!<CR>
