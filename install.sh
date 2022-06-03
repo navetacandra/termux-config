@@ -2,21 +2,21 @@
 termux-setup-storage
 
 # update and upgrade default dependencies
-apt update -y
-apt upgrade -y
+pkg update -y
+pkg upgrade -y
 
 # install x11-repo
 pkg install x11-repo -y
 
 # install needed dependencies
   # text editor packages
-  apt install vim nano -y
+  pkg install vim nano -y
 
   # language packages
-  apt install nodejs python python3 ruby -y
+  pkg install nodejs python python3 ruby -y
 
   # other packages
-  apt install curl git gh proot-distro cowsay neofetch -y
+  pkg install curl git gh proot-distro cowsay neofetch -y
 
 # install dependencies from packages
 gem install lolcat
@@ -24,8 +24,8 @@ npm install -g typescript prettier eslint
 proot-distro install ubuntu
 
 # re-update and re-upgrade dependencies
-apt update -y
-apt upgrade -y
+pkg update -y
+pkg upgrade -y
 
 # remove default print on start
 cd ~/../usr/etc
