@@ -14,7 +14,7 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'preservim/nerdcommenter'
   Plug 'mattn/emmet-vim'
-  Plug 'prettier/vim-prettier', {'do': 'npm install --frozen-lockfile --production --global'}
+  Plug 'prettier/vim-prettier', {'do': 'npm install prettier --frozen-lockfile --production --global'}
 call plug#end()
 
 
