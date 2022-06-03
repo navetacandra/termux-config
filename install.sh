@@ -20,7 +20,7 @@ pkg install x11-repo -y
 
 # install dependencies from packages
 gem install lolcat
-npm install typescript eslint --global
+npm install typescript ts-node eslint --global
 proot-distro install ubuntu
 
 # re-update and re-upgrade dependencies
