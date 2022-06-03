@@ -1,0 +1,104 @@
+syntax on
+
+
+
+call plug#begin()
+  Plug 'mhinz/vim-startify'
+  Plug 'Yggdroot/indentLine'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'preservim/nerdtree'
+  Plug 'frazrepo/vim-rainbow'
+  Plug 'itchyny/lightline.vim'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'preservim/nerdcommenter'
+  Plug 'mattn/emmet-vim'
+call plug#end()
+
+
+
+set nobackup
+set autoindent
+set smartindent
+set number
+set cursorline
+set cursorcolumn
+set tabstop=2
+set softtabstop=2
+set expandtab
+set shiftwidth=2
+set encoding=utf8
+set laststatus=2
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set background=dark
+
+
+
+if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+    set t_Co=256
+endif
+
+
+
+colorscheme onedark
+
+
+
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+function! ToggleNerdTree()
+  set eventignore=BufEnter
+  NERDTreeToggle
+  set eventignore=
+endfunction
+
+
+
+let NERDTreeShowHidden = 1
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:indentLine_enabled = 1
+let g:indentLine_char_list = ['|', '¦', '┆']
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_statusline_ontop = 0
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_theme='base16_twilight'
+let g:ctrlp_custom_ignore = '\v[\/]\.(swp|zip)$'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_show_hidden = 1
+
+
+
+map <C-s> :w<CR>
+map <C-x> :q!<CR>
+map <C-q> :qa!<CR>
+map <C-k>i :IndentLinesToggle<CR>
+nmap <C-b> :call ToggleNerdTree()<CR>
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
+map <C-t> :tabnew<CR>
+
+
+
+autocmd BufEnter * call SyncTree()
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+
+
+filetype plugin on
+map cc <Plug>NERDCommenterInvert

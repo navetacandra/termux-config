@@ -1,0 +1,8 @@
+set tabsize 2
+set tabstospaces
+set nohelp
+set linenumbers
+set softwrap
+set indicator
+set nonewlines
+set autoindent
