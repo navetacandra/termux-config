@@ -27,10 +27,6 @@ proot-distro install ubuntu
 pkg update -y
 pkg upgrade -y
 
-# remove default print on start
-cd ~/../usr/etc
-rm -rf motd
-
 # writting config files
 cp -rf ./config/bash-config $HOME/.bashrc
 cp -rf ./config/nano-config $HOME/.nanorc
@@ -40,6 +36,10 @@ cp -rf ./config/vim-config $HOME/.vimrc
 # writting termux config
 cp -rf ./config/colors_properties $HOME/.termux/colors.properties
 cp -rf ./config/font $HOME/.termux/font.ttf
+
+# remove default print on start
+cd ~/../usr/etc
+rm -rf motd
 
 # set current directory to HOME
 cd $HOME
