@@ -73,7 +73,7 @@ function! PrettierAndSave()
     Prettier
     w
   endif
-endfunctio
+endfunction
 
 
 
