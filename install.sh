@@ -27,8 +27,13 @@ proot-distro install ubuntu
 pkg update -y
 pkg upgrade -y
 
+# install oh-my-bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+# write bash-config to bashrc
+node ./write-bashrc
+
 # writting config files
-cp -rf ./config/bash-config $HOME/.bashrc
 cp -rf ./config/nano-config $HOME/.nanorc
 cp -rf ./config/vim $HOME/.vim
 cp -rf ./config/vim-config $HOME/.vimrc
