@@ -16,7 +16,7 @@ pkg install x11-repo -y
   pkg install nodejs python python3 ruby -y
 
   # other packages
-  pkg install curl git gh proot-distro cowsay neofetch -y
+  pkg install zsh curl git gh proot-distro cowsay neofetch -y
 
 # install dependencies from packages
 gem install lolcat
@@ -27,13 +27,8 @@ proot-distro install ubuntu
 pkg update -y
 pkg upgrade -y
 
-# install oh-my-bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-
-# write bash-config to bashrc
-node ./write-bashrc
-
 # writting config files
+cp -rf ./config/bash-config $HOME/.bashrc
 cp -rf ./config/nano-config $HOME/.nanorc
 cp -rf ./config/vim $HOME/.vim
 cp -rf ./config/vim-config $HOME/.vimrc
@@ -48,3 +43,16 @@ rm -rf motd
 
 # set current directory to HOME
 cd $HOME
+
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# install zsh custom plugins
+  # command highlight
+    # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+  # auto suggestion
+    # git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+
+# import bashrc to zshrc
+# echo "source ~/.bashrc" >> $HOME/.zshrc

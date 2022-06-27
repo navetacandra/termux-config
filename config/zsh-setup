@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const path = require("path");
+
+if (!process.env.ZSH) return null;
+
+const zshrc_path = path.resolve(path.join(process.env.HOME, ".zshrc"));
+const zsh_custom_plug_path = path.resolve(
+  path.join(process.env.ZSH, "custom", "plugins")
+);
+
+const default_plug = ["git", "npm"];
+
+let zshrc = fs.readFileSync(zshrc_path, "utf-8") || "";
+let zsh_custom_plug = fs
+  .readdirSync(zsh_custom_plug_path)
+  .filter((plug) => plug.toLowerCase() != "example");
+
+if (!zshrc) return false;
+
+zshrc = zshrc.split("\nplugins=(");
+
+let zsh_new = `${zshrc[0]}\nplugins=(\n`;
+zsh_new += default_plug.map((plug) => `  ${plug}`).join(`\n`);
+zsh_new += zsh_custom_plug.map((plug) => `  ${plug}`).join("\n");
+zsh_new += `\n${zshrc[1].substr(zshrc[1].indexOf(")"))}`;
+
+console.log("Custom ZSH Plugins :\n", zsh_custom_plug);
+
+if (!zsh_new.includes("source ~/.bashrc")) {
+  zsh_new += "source ~/.bashrc";
+}
+
+let theme_match = zsh_new.match(/ZSH_THEME="(.*)"/);
+if (theme_match) {
+  zsh_new = zsh_new.replace(
+    `ZSH_THEME="${theme_match[1]}"`,
+    'ZSH_THEME="gnzh"'
+  );
+}
+
+fs.writeFileSync(zshrc_path, zsh_new);
