@@ -9,3 +9,8 @@ git clone https://github.com/navetacandra/termux-config.git &&
 cd termux-config &&
 sh ./install.sh
 ```
+
+### ZSH Setup
+```bash
+sh zsh-setup.sh
+```
