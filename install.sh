@@ -13,7 +13,7 @@ pkg install x11-repo -y
   pkg install vim nano -y
 
   # language packages
-  pkg install nodejs python python3 ruby -y
+  pkg install nodejs python python3 ruby openjdk-17 php mariadb -y
 
   # other packages
   pkg install zsh curl git gh proot-distro cowsay neofetch -y
@@ -21,7 +21,6 @@ pkg install x11-repo -y
 # install dependencies from packages
 gem install lolcat
 npm install typescript ts-node eslint --global
-proot-distro install ubuntu
 
 # re-update and re-upgrade dependencies
 pkg update -y

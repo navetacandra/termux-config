@@ -4,6 +4,5 @@
   # auto suggestion
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH/custom/plugins/zsh-autosuggestions
 
-
 # config setup
 node ./config/zsh-setup

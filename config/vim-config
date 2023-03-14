@@ -1,7 +1,5 @@
 syntax on
 
-
-
 call plug#begin()
   Plug 'mhinz/vim-startify'
   Plug 'Yggdroot/indentLine'
@@ -16,8 +14,6 @@ call plug#begin()
   Plug 'mattn/emmet-vim'
   Plug 'prettier/vim-prettier', {'do': 'npm install prettier --frozen-lockfile --production --global'}
 call plug#end()
-
-
 
 set nobackup
 set autoindent
@@ -34,8 +30,6 @@ set laststatus=2
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set background=dark
 
-
-
 if has('termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -43,11 +37,7 @@ if has('termguicolors')
     set t_Co=256
 endif
 
-
-
 colorscheme onedark
-
-
 
 function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
@@ -75,8 +65,6 @@ function! PrettierAndSave()
   endif
 endfunction
 
-
-
 let NERDTreeShowHidden = 1
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -91,8 +79,6 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(swp|zip)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_show_hidden = 1
 
-
-
 map <C-p> :Prettier<CR>
 map <C-s> :call PrettierAndSave()<CR>
 map <C-x> :q!<CR>
@@ -103,13 +89,9 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-t> :tabnew<CR>
 
-
-
 autocmd BufEnter * call SyncTree()
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-
-
 
 filetype plugin on
 map cc <Plug>NERDCommenterInvert

@@ -1,6 +1,6 @@
 set tabsize 2
 set tabstospaces
-set nohelp
+#set nohelp
 set linenumbers
 set softwrap
 set indicator

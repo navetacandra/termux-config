@@ -1,5 +1,4 @@
 alias cls='clear'
-alias ubuntu='proot-distro login ubuntu'
 
 echo "
                                         .::!!!!!!!:.
